@@ -28,8 +28,27 @@ class Drummer(Musician):
     instrument = "Drums"
 
 
-class Band(Musician):
-    pass
+class Band:
+
+    prev_bands = []
+
+    def __init__(self, name, members=None):
+        self.name = name
+        if members is None:
+            self.members = []
+            Band.prev_bands.append(self)
+        else:
+            self.members = members
+            Band.prev_bands.append(self)
+
+    def play_solos(self):
+        for i in self.members:
+            print(i.play_solo())
+
+    @classmethod
+    def to_list(cls):
+        for i in cls.prev_bands:
+            return i
 
 
 guitar_1 = Guitarist("Adam", "Brown chicken brown cow!")
