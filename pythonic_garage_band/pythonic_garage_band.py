@@ -1,4 +1,7 @@
 class Musician:
+    """
+    This is the Musician main class. Called without a subclass, instrument = "Unknown".
+    """
 
     instrument = "Unknown"
 
@@ -20,7 +23,9 @@ class Musician:
 
 
 class Guitarist(Musician):
-
+    """
+    This is the Guitarist subclass. It extends the Musician class.
+    """
     instrument = "Guitar"
 
     def __repr__(self):
@@ -31,7 +36,9 @@ class Guitarist(Musician):
 
 
 class Bassist(Musician):
-
+    """
+    This is the Bassist subclass. It extends the Musician class.
+    """
     instrument = "Bass"
 
     def __repr__(self):
@@ -42,7 +49,9 @@ class Bassist(Musician):
 
 
 class Drummer(Musician):
-
+    """
+    This is the Drummer subclass. It extends the Musician class.
+    """
     instrument = "Drums"
 
     def __repr__(self):
@@ -53,7 +62,9 @@ class Drummer(Musician):
 
 
 class Band:
-
+    """
+    This is the Band class. It's members are Musician extended by instrument subclasses. It remembers all bands created by Band, it's members, and their instruments.
+    """
     prev_bands = []
 
     def __init__(self, name, members=None):
@@ -66,8 +77,10 @@ class Band:
             Band.prev_bands.append(self)
 
     def play_solos(self):
+        solos = ""
         for i in self.members:
-            print(i.play_solo())
+            solos += i.play_solo() + " "
+        return solos
 
     def __repr__(self):
         return 'Band("{}", "{}")'.format(self.name, self.members)
@@ -81,6 +94,7 @@ class Band:
     @classmethod
     def to_list(cls):
         for i in cls.prev_bands:
+            print(i)
             return i
 
 
@@ -97,10 +111,3 @@ drum_2 = Drummer("Ringo", "tap tap tap tap ba daaa")
 drum_3 = Drummer("Travis", "tst tst kats-it tst tst kats-is")
 
 band_1 = Band("Warm October", [guitar_2, guitar_3, bass_1, bass_2, drum_1])
-
-
-band_1.play_solos()
-Band.to_list()
-print(repr(bass_1))
-print(repr(band_1))
-print(str(band_1))
