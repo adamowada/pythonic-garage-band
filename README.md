@@ -7,6 +7,7 @@ This is practice with python's OOP. There is a main class Musician, and 3 subcla
 
 Additionally good practice is followed with each class having its own docstring, __str__, and __repr__ methods.
 
+
 ### Attributions:
 
 https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc Corey Schafer's Python OOP playlist helped me with:
